@@ -12,7 +12,7 @@ import cinemaJPA.Repertoar9;
 
 public class repertoarManager {
 	
-	public Repertoar9 saveRepertoar1(int cena, String dan, int mesta, String sala,String tip,Film9 film) {
+	public Repertoar9 saveRepertoar(int cena, String dan, int mesta, String sala,String tip,Film9 film) {
 		try {
 			EntityManager em = JPAUtils.getEntityManager();
 			em.getTransaction().begin();

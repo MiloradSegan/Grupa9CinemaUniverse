@@ -28,13 +28,13 @@ import cinemaJPA.Film9;
  */
 
 @MultipartConfig(maxFileSize = 16177215)
-public class unosFilma extends HttpServlet {
+public class unosFilmaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public unosFilma() {
+    public unosFilmaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

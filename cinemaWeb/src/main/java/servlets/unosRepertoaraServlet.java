@@ -19,13 +19,13 @@ import managers.repertoarManager;
 /**
  * Servlet implementation class SaveClanServlet
  */
-public class unosRepertoara extends HttpServlet {
+public class unosRepertoaraServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public unosRepertoara() {
+    public unosRepertoaraServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

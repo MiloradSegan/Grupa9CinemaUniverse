@@ -12,7 +12,7 @@
 </head>
 <body>
 
-		<form method="post" action="/cinemaWeb/unosFilma" enctype="multipart/form-data">
+		<form method="post" action="/cinemaWeb/unosFilmaServlet" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>Naziv</td>

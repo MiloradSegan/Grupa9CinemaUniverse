@@ -11,7 +11,7 @@
 <title>Unos filma</title>
 </head>
 <body>
-	<form action="/cinemaWeb/unosFilmaServlet" method="post" >
+	<form action="\cinemaWeb\unosFilmaServlet2" method="post" >
 		<table>
 			<tr>
 				<td>Naziv</td>
@@ -42,7 +42,6 @@
 				<td><input name="trailer" type="text"></td>
 			</tr>
 		</table>
-		
 		<input type="submit" value="Sacuvaj">
 	</form>
  <form action = "Pocetna.jsp">

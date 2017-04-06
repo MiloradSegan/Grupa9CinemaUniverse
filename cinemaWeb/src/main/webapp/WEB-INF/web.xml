@@ -5,10 +5,10 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>unosFilmaServlet</servlet-name>
-  	<display-name>unosFilmaServlet</display-name>
+  	<servlet-name>unosFilmaServlet1</servlet-name>
+  	<display-name>unosFilmaServlet1</display-name>
   	<description></description>
-  	<servlet-class>servlets.unosFilmaServlet</servlet-class>
+  	<servlet-class>servlets.unosFilmaServlet1</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>unosRepertoaraServlet</servlet-name>
@@ -16,12 +16,22 @@
   	<description></description>
   	<servlet-class>servlets.unosRepertoaraServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>unosFilmaServlet2</servlet-name>
+  	<display-name>unosFilmaServlet2</display-name>
+  	<description></description>
+  	<servlet-class>servlets.unosFilmaServlet2</servlet-class>
+  </servlet>
   <servlet-mapping>
-  	<servlet-name>unosFilmaServlet</servlet-name>
+  	<servlet-name>unosFilmaServlet1</servlet-name>
   	<url-pattern>/unosFilma</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>unosRepertoaraServlet</servlet-name>
   	<url-pattern>/unosRepertoara</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>unosFilmaServlet2</servlet-name>
+  	<url-pattern>/unosFilmaServlet2</url-pattern>
   </servlet-mapping> 
 </web-app>

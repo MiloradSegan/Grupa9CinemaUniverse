@@ -26,8 +26,6 @@ import cinemaJPA.Film9;
 /**
  * Servlet implementation class unosFilma
  */
-
-@MultipartConfig(maxFileSize = 16177215)
 public class unosFilmaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

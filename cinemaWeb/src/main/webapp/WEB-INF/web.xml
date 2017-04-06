@@ -23,6 +23,5 @@
   <servlet-mapping>
   	<servlet-name>unosRepertoaraServlet</servlet-name>
   	<url-pattern>/unosRepertoara</url-pattern>
-  </servlet-mapping>
-  
+  </servlet-mapping> 
 </web-app>

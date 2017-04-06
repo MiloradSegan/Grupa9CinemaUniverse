@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="\web\unosRepertoara" method="post">
+	<form action="\cinemaWeb\unosRepertoara" method="post">
 		<table>
 			<tr>
 				<td>Cena</td>

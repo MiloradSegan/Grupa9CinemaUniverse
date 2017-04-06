@@ -12,7 +12,28 @@ import cinemaJPA.Repertoar9;
 
 public class repertoarManager {
 	
-	public Repertoar9 saveRepertoar(int idfil, String dan, String sala, int mesta, int cena,String tip) {
+	public Repertoar9 saveRepertoar1(int cena, String dan, int mesta, String sala,String tip,Film9 film) {
+		try {
+			EntityManager em = JPAUtils.getEntityManager();
+			em.getTransaction().begin();
+			Repertoar9 r = new Repertoar9();
+			r.setCena(cena);
+			r.setDan(dan);
+			r.setMesta(mesta);
+			r.setSala(sala);
+			r.setTipprojekcije(tip);
+			r.setFilm9(film);
+			em.persist(r);
+			em.getTransaction().commit();
+			em.close();
+			return r;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/*public Repertoar9 saveRepertoar(int idfil, String dan, String sala, int mesta, int cena,String tip) {
 		try {
 			EntityManager em = JPAUtils.getEntityManager();
 			
@@ -40,20 +61,10 @@ public class repertoarManager {
 			e.printStackTrace();
 			return null;
 		}
-	}
+	}*/
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		repertoarManager rma = new repertoarManager();
-		try{
-			repertoarManager rm = new repertoarManager();
-		
-			//System.out.println("1");
-			Repertoar9 r = rm.saveRepertoar(1,"ponedeljak","mala",20,200,"projekcija");
-			
-		}catch(Exception e){
-			e.printStackTrace();
-		}
 
 	}
 

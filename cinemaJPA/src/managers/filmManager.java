@@ -29,6 +29,22 @@ public class filmManager {
 			return null;
 		}
 	}
+	public static List<Film9>  pretragaNaziv(String naziv){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Film9>query = em.createQuery("select f from Film9 f where f.naziv like :naziv", Film9.class);
+		query.setParameter("naziv", "%"+naziv+"%");
+		List<Film9>result = query.getResultList();
+		em.close();
+		return result;
+	}
+	public List<Film9> pretragaZanr(String zanr){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Film9>query = em.createQuery("select f from Film9 f where f.zanr like :zanr", Film9.class);
+		query.setParameter("zanr", "%"+zanr+"%");
+		List<Film9>result = query.getResultList();
+		em.close();
+		return result;
+	}
 	public Film9 saveFilm1(String naziv, String trailer, String opis, String zanr, String glumci, String reditelj) {
 		try {
 			EntityManager em = JPAUtils.getEntityManager();

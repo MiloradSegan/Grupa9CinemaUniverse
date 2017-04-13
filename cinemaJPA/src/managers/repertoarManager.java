@@ -3,6 +3,7 @@ package managers;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -37,6 +38,21 @@ public class repertoarManager {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	public static List<Repertoar9>getRepertoare(){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Repertoar9>query=em.createQuery("select r from Repertoar9 r",Repertoar9.class);
+		List<Repertoar9>result=query.getResultList();
+		em.close();
+		return result;
+	}
+	public List<Repertoar9> pretragaTip(String tipprojekcije){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Repertoar9>query = em.createQuery("select f from Repertoar9 f where f.tipprojekcije like :tipprojekcije", Repertoar9.class);
+		query.setParameter("tipprojekcije", "%"+tipprojekcije+"%");
+		List<Repertoar9>result = query.getResultList();
+		em.close();
+		return result;
 	}
 	
 	/*public Repertoar9 saveRepertoar(int idfil, String dan, String sala, int mesta, int cena,String tip) {
@@ -80,7 +96,7 @@ public class repertoarManager {
 			
 			String datum ="1992-10-10";
 			
-			String vreme ="10:00:00";
+			String vreme ="12:00:00";
 			SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 			Date d1 =(Date)format.parse(vreme);
 			Time time = new Time(d1.getTime());

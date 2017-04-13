@@ -18,6 +18,13 @@
   	<description></description>
   	<servlet-class>servlets.unosFilmaServlet2</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>prikazDetaljaFilma</display-name>
+  	<servlet-name>prikazDetaljaFilma</servlet-name>
+  	<servlet-class>servlets.prikazDetaljaFilma</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>unosFilmaServlet1</servlet-name>
   	<url-pattern>/unosFilma</url-pattern>
@@ -29,5 +36,9 @@
   <servlet-mapping>
   	<servlet-name>unosFilmaServlet2</servlet-name>
   	<url-pattern>/unosFilmaServlet2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>prikazDetaljaFilma</servlet-name>
+  	<url-pattern>/prikazDetaljaFilma</url-pattern>
   </servlet-mapping> 
 </web-app>

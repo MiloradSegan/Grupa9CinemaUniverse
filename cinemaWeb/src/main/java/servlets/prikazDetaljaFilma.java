@@ -31,7 +31,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
     	String s = request.getParameter("idfil");
 		
 		Film9 f = new filmManager().getFilmForId(Integer.parseInt(s));
-	    
+	    System.out.println();
 	
 	request.setAttribute("f", f);
 	getServletConfig().getServletContext().getRequestDispatcher("/prikazDetaljaFilma.jsp")

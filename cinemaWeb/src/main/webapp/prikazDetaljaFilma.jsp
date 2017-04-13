@@ -11,7 +11,7 @@
   <caption>Detalji filma</caption>
 	<thead>
                 <tr>
-                    <th>Glumci</th>
+                    <th>Glumci filma</th>
                     <th>Opis</th>
                     <th>Komentari</th>
                     <th>Slika</th>

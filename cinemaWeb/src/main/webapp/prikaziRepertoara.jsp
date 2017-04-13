@@ -20,7 +20,7 @@
                     <th>Datum proekcije</th>
                     <th>Vreme proekcije</th>
                     <th>Sala</th>
-                    <th>Broj mesta</th>
+                    <th>Br mesta </th>
                     <th>Cena karte</th>
                 </tr>
                 

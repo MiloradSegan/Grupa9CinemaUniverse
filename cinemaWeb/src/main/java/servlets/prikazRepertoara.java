@@ -38,6 +38,7 @@ public class prikazRepertoara extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
     		List<Repertoar9> rep = new repertoarManager().getRepertoare();
 		    System.out.println(rep.size());
+		    System.out.println("velicina");
     	
 		request.setAttribute("rep", rep);
 		getServletConfig().getServletContext().getRequestDispatcher("/prikaziRepertoara.jsp")

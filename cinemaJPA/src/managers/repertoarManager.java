@@ -39,6 +39,21 @@ public class repertoarManager {
 			return null;
 		}
 	}
+	public static List<Repertoar9>getRepertoare(){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Repertoar9>query=em.createQuery("select r from Repertoar9 r",Repertoar9.class);
+		List<Repertoar9>result=query.getResultList();
+		em.close();
+		return result;
+	}
+	public List<Repertoar9> pretragaTip(String tipprojekcije){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Repertoar9>query = em.createQuery("select f from Repertoar9 f where f.tipprojekcije like :tipprojekcije", Repertoar9.class);
+		query.setParameter("tipprojekcije", "%"+tipprojekcije+"%");
+		List<Repertoar9>result = query.getResultList();
+		em.close();
+		return result;
+	}
 	public List<Repertoar9> getRepertoare(){
     	EntityManager em = JPAUtils.getEntityManager();
     	TypedQuery<Repertoar9> q = em.createQuery("select r FROM Repertoar9 r",Repertoar9.class);
@@ -88,7 +103,7 @@ public class repertoarManager {
 			
 			String datum ="1992-10-10";
 			
-			String vreme ="10:00:00";
+			String vreme ="12:00:00";
 			SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 			Date d1 =(Date)format.parse(vreme);
 			Time time = new Time(d1.getTime());

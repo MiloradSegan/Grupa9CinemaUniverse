@@ -1,6 +1,7 @@
 package managers;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.EntityManager;
@@ -14,7 +15,7 @@ import managers.filmManager;
 
 public class repertoarManager {
 	
-	public Repertoar9 saveRepertoar(int cena, String dan, int mesta, String sala,String tip,Film9 film,Date datumpro) {
+	public Repertoar9 saveRepertoar(int cena, String dan, int mesta, String sala,String tip,Film9 film,Time vreme,Date datumpro) {
 		try {
 			EntityManager em = JPAUtils.getEntityManager();
 			em.getTransaction().begin();
@@ -25,7 +26,9 @@ public class repertoarManager {
 			r.setSala(sala);
 			r.setTipprojekcije(tip);
 			r.setFilm9(film);
+			r.setVreme(vreme);
 			r.setDatumpro(datumpro);
+			
 			em.persist(r);
 			em.getTransaction().commit();
 			em.close();
@@ -74,8 +77,16 @@ public class repertoarManager {
 			repertoarManager rm = new repertoarManager();
 			int id = 1;
 			Film9 f = fm.getFilmForId(id);
+			
+			String datum ="1992-10-10";
+			
+			String vreme ="10:00:00";
+			SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+			Date d1 =(Date)format.parse(vreme);
+			Time time = new Time(d1.getTime());
+			
 			//System.out.println("1");
-			Repertoar9 r = rm.saveRepertoar(11,"uto",20,"mala","projekcija",f,new Date());
+			Repertoar9 r = rm.saveRepertoar(11,"uto",20,"mala","projekcija",f,time,new Date());
 			
 		}catch(Exception e){
 			e.printStackTrace();

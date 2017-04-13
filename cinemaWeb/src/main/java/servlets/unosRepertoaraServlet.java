@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,14 +42,23 @@ public class unosRepertoaraServlet extends HttpServlet {
 		String sala = request.getParameter("sala");
 		String tip = request.getParameter("tip");
 		String id = request.getParameter("idfilm");
-		
+		String vreme = request.getParameter("vreme");
+		String datumpro = request.getParameter("datumpro");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 		repertoarManager rm = new repertoarManager();
 		filmManager fm = new filmManager();
 		try{
+			
+			Date d1 =(Date)format.parse(vreme);
+			Time time = new Time(d1.getTime());
+			
+			Date datumprodate = sdf.parse(datumpro);
+			 
 			String poruka;
 			Film9 f = fm.getFilmForId(Integer.parseInt(id));
 			
-			Repertoar9 r = rm.saveRepertoar(Integer.parseInt(cena),dan,Integer.parseInt(mesta),sala,tip,f,new Date());
+			Repertoar9 r = rm.saveRepertoar(Integer.parseInt(cena),dan,Integer.parseInt(mesta),sala,tip,f,time,datumprodate);
 			
 			if(r!=null){
 				poruka="Uspesno ste snimili repertoar";

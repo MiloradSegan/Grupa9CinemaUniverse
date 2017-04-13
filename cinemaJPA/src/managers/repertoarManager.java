@@ -3,6 +3,7 @@ package managers;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -38,7 +39,14 @@ public class repertoarManager {
 			return null;
 		}
 	}
-	
+	public List<Repertoar9> getRepertoare(){
+    	EntityManager em = JPAUtils.getEntityManager();
+    	TypedQuery<Repertoar9> q = em.createQuery("select r FROM Repertoar9 r",Repertoar9.class);
+    	List<Repertoar9> rez = q.getResultList();
+    	em.close();
+    	return rez;
+    	
+    }
 	/*public Repertoar9 saveRepertoar(int idfil, String dan, String sala, int mesta, int cena,String tip) {
 		try {
 			EntityManager em = JPAUtils.getEntityManager();
@@ -68,10 +76,10 @@ public class repertoarManager {
 			return null;
 		}
 	}*/
- 
+    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		repertoarManager rma = new repertoarManager();
+	/*	repertoarManager rma = new repertoarManager();
 		filmManager fm=new filmManager();
 		try{
 			repertoarManager rm = new repertoarManager();
@@ -91,7 +99,7 @@ public class repertoarManager {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-
+*/
 	}
 
 }

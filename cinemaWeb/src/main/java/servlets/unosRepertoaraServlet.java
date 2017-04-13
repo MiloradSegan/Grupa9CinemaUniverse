@@ -44,7 +44,7 @@ public class unosRepertoaraServlet extends HttpServlet {
 		String id = request.getParameter("idfilm");
 		String vreme = request.getParameter("vreme");
 		String datumpro = request.getParameter("datumpro");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 		repertoarManager rm = new repertoarManager();
 		filmManager fm = new filmManager();

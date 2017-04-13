@@ -40,6 +40,15 @@
 				<td>Tip projekcije</td>
 				<td><input name="tip" type="text"></td>
 			</tr>
+			<tr>
+				<td>Vreme</td>
+				<td><input name="vreme" type="text"></td>
+			</tr>
+			<tr>
+				<td>Datum projekcije</td>
+				<td><input name="datumpro" type="text"></td>
+			</tr>
+			
 		</table>
 		<input type="submit" value="Snimi repertoar">
 	</form>

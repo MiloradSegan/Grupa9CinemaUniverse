@@ -1,4 +1,4 @@
-package cinemaJPA;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -10,6 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name = "KORISNIK9")
 @NamedQuery(name="Korisnik9.findAll", query="SELECT k FROM Korisnik9 k")
 public class Korisnik9 implements Serializable {
 	private static final long serialVersionUID = 1L;

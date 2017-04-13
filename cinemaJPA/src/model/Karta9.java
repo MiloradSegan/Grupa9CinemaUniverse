@@ -1,4 +1,4 @@
-package cinemaJPA;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -10,6 +10,7 @@ import java.util.Date;
  * 
  */
 @Entity
+@Table(name = "KARTA9")
 @NamedQuery(name="Karta9.findAll", query="SELECT k FROM Karta9 k")
 public class Karta9 implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -27,15 +28,15 @@ public class Karta9 implements Serializable {
 
 	private float suma;
 
-	//bi-directional many-to-one association to Repertoar9
-	@ManyToOne
-	@JoinColumn(name="IDREP")
-	private Repertoar9 repertoar9;
-
 	//bi-directional many-to-one association to Zaposleni9
 	@ManyToOne
 	@JoinColumn(name="IDZAP")
 	private Zaposleni9 zaposleni9;
+
+	//bi-directional many-to-one association to Repertoar9
+	@ManyToOne
+	@JoinColumn(name="IDREP")
+	private Repertoar9 repertoar9;
 
 	public Karta9() {
 	}
@@ -80,20 +81,20 @@ public class Karta9 implements Serializable {
 		this.suma = suma;
 	}
 
-	public Repertoar9 getRepertoar9() {
-		return this.repertoar9;
-	}
-
-	public void setRepertoar9(Repertoar9 repertoar9) {
-		this.repertoar9 = repertoar9;
-	}
-
 	public Zaposleni9 getZaposleni9() {
 		return this.zaposleni9;
 	}
 
 	public void setZaposleni9(Zaposleni9 zaposleni9) {
 		this.zaposleni9 = zaposleni9;
+	}
+
+	public Repertoar9 getRepertoar9() {
+		return this.repertoar9;
+	}
+
+	public void setRepertoar9(Repertoar9 repertoar9) {
+		this.repertoar9 = repertoar9;
 	}
 
 }

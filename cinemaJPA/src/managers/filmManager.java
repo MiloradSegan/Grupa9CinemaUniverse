@@ -3,8 +3,8 @@ package managers;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import cinemaJPA.Film9;
-import cinemaJPA.Komentar9;
+import model.Film9;
+import model.Komentar9;
 import java.util.List;
 public class filmManager {
 	

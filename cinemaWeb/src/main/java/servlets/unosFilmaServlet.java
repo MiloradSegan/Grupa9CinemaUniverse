@@ -21,7 +21,7 @@ import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 import managers.JPAUtils;
 import managers.filmManager;
-import cinemaJPA.Film9;
+import model.Film9;
 
 /**
  * Servlet implementation class unosFilma

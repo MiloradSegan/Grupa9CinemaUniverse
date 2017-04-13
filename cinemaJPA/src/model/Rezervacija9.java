@@ -1,4 +1,4 @@
-package cinemaJPA;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,6 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name = "REZERVACIJA9")
 @NamedQuery(name="Rezervacija9.findAll", query="SELECT r FROM Rezervacija9 r")
 public class Rezervacija9 implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -19,15 +20,15 @@ public class Rezervacija9 implements Serializable {
 
 	private int mestarez;
 
-	//bi-directional many-to-one association to Repertoar9
-	@ManyToOne
-	@JoinColumn(name="IDREP")
-	private Repertoar9 repertoar9;
-
 	//bi-directional many-to-one association to Korisnik9
 	@ManyToOne
 	@JoinColumn(name="IDKOR")
 	private Korisnik9 korisnik9;
+
+	//bi-directional many-to-one association to Repertoar9
+	@ManyToOne
+	@JoinColumn(name="IDREP")
+	private Repertoar9 repertoar9;
 
 	public Rezervacija9() {
 	}
@@ -48,20 +49,20 @@ public class Rezervacija9 implements Serializable {
 		this.mestarez = mestarez;
 	}
 
-	public Repertoar9 getRepertoar9() {
-		return this.repertoar9;
-	}
-
-	public void setRepertoar9(Repertoar9 repertoar9) {
-		this.repertoar9 = repertoar9;
-	}
-
 	public Korisnik9 getKorisnik9() {
 		return this.korisnik9;
 	}
 
 	public void setKorisnik9(Korisnik9 korisnik9) {
 		this.korisnik9 = korisnik9;
+	}
+
+	public Repertoar9 getRepertoar9() {
+		return this.repertoar9;
+	}
+
+	public void setRepertoar9(Repertoar9 repertoar9) {
+		this.repertoar9 = repertoar9;
 	}
 
 }

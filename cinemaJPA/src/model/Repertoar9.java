@@ -1,7 +1,9 @@
-package cinemaJPA;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 
@@ -23,11 +25,16 @@ public class Repertoar9 implements Serializable {
 
 	private String dan;
 
+	@Temporal(TemporalType.DATE)
+	private Date datumpro;
+
 	private int mesta;
 
 	private String sala;
 
 	private String tipprojekcije;
+
+	private Time vreme;
 
 	//bi-directional many-to-one association to Karta9
 	@OneToMany(mappedBy="repertoar9")
@@ -69,6 +76,14 @@ public class Repertoar9 implements Serializable {
 		this.dan = dan;
 	}
 
+	public Date getDatumpro() {
+		return this.datumpro;
+	}
+
+	public void setDatumpro(Date datumpro) {
+		this.datumpro = datumpro;
+	}
+
 	public int getMesta() {
 		return this.mesta;
 	}
@@ -91,6 +106,14 @@ public class Repertoar9 implements Serializable {
 
 	public void setTipprojekcije(String tipprojekcije) {
 		this.tipprojekcije = tipprojekcije;
+	}
+
+	public Time getVreme() {
+		return this.vreme;
+	}
+
+	public void setVreme(Time vreme) {
+		this.vreme = vreme;
 	}
 
 	public List<Karta9> getKarta9s() {

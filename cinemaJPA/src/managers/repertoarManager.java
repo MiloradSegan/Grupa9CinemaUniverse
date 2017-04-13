@@ -1,18 +1,20 @@
 package managers;
 
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import cinemaJPA.Film9;
-import cinemaJPA.Komentar9;
-import cinemaJPA.Korisnik9;
-import cinemaJPA.Repertoar9;
+import model.Film9;
+import model.Komentar9;
+import model.Korisnik9;
+import model.Repertoar9;
+import managers.filmManager;
 
 public class repertoarManager {
 	
-	public Repertoar9 saveRepertoar(int cena, String dan, int mesta, String sala,String tip,Film9 film) {
+	public Repertoar9 saveRepertoar(int cena, String dan, int mesta, String sala,String tip,Film9 film,Date datumpro) {
 		try {
 			EntityManager em = JPAUtils.getEntityManager();
 			em.getTransaction().begin();
@@ -23,6 +25,7 @@ public class repertoarManager {
 			r.setSala(sala);
 			r.setTipprojekcije(tip);
 			r.setFilm9(film);
+			r.setDatumpro(datumpro);
 			em.persist(r);
 			em.getTransaction().commit();
 			em.close();
@@ -62,9 +65,21 @@ public class repertoarManager {
 			return null;
 		}
 	}*/
-
+ 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		repertoarManager rma = new repertoarManager();
+		filmManager fm=new filmManager();
+		try{
+			repertoarManager rm = new repertoarManager();
+			int id = 1;
+			Film9 f = fm.getFilmForId(id);
+			//System.out.println("1");
+			Repertoar9 r = rm.saveRepertoar(11,"uto",20,"mala","projekcija",f,new Date());
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 
 	}
 

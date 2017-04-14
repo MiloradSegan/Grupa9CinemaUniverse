@@ -4,6 +4,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -39,13 +40,7 @@ public class repertoarManager {
 			return null;
 		}
 	}
-	public static List<Repertoar9>getRepertoare(){
-		EntityManager em = JPAUtils.getEntityManager();
-		TypedQuery<Repertoar9>query=em.createQuery("select r from Repertoar9 r",Repertoar9.class);
-		List<Repertoar9>result=query.getResultList();
-		em.close();
-		return result;
-	}
+	
 	public List<Repertoar9> pretragaTip(String tipprojekcije){
 		EntityManager em = JPAUtils.getEntityManager();
 		TypedQuery<Repertoar9>query = em.createQuery("select f from Repertoar9 f where f.tipprojekcije like :tipprojekcije", Repertoar9.class);
@@ -91,7 +86,23 @@ public class repertoarManager {
 			return null;
 		}
 	}*/
-    
+	public List<Repertoar9> salaPrikazivanja(String sala){
+		EntityManager em = JPAUtils.getEntityManager();
+    	TypedQuery<Repertoar9> q = em.createQuery("select r from Repertoar9 r where sala like :sala",Repertoar9.class);
+    	q.setParameter("sala",sala);
+    	List<Repertoar9> rez =q.getResultList();
+    	em.close();
+    	return rez;
+	}
+    public List<Repertoar9> poVremenu(Time vreme){
+    	EntityManager em = JPAUtils.getEntityManager();
+    	TypedQuery<Repertoar9> q = em.createQuery("select r from Repertoar9 r where vreme =:vreme",Repertoar9.class);
+    	q.setParameter("vreme",vreme);
+
+    	List<Repertoar9> rez =q.getResultList();
+    	em.close();
+    	return rez;
+    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	/*	repertoarManager rma = new repertoarManager();

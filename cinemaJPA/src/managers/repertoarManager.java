@@ -40,6 +40,14 @@ public class repertoarManager {
 			return null;
 		}
 	}
+	public static List<Repertoar9> pretragaTip(String tipprojekcije){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Repertoar9>query = em.createQuery("select f from Repertoar9 f where f.tipprojekcije like :tipprojekcije", Repertoar9.class);
+		query.setParameter("tipprojekcije", "%"+tipprojekcije+"%");
+		List<Repertoar9>result = query.getResultList();
+		em.close();
+		return result;
+	}
 	public List<Repertoar9> pretragaZanraFilma(String zanr){
 		EntityManager em = JPAUtils.getEntityManager();
 		TypedQuery<Repertoar9>query = em.createQuery("SELECT r FROM Repertoar9 r join r.film9 f WHERE f.zanr like :zanr", Repertoar9.class);
@@ -49,14 +57,7 @@ public class repertoarManager {
 		return result;
 	}
 	
-	public List<Repertoar9> pretragaTip(String tipprojekcije){
-		EntityManager em = JPAUtils.getEntityManager();
-		TypedQuery<Repertoar9>query = em.createQuery("select f from Repertoar9 f where f.tipprojekcije like :tipprojekcije", Repertoar9.class);
-		query.setParameter("tipprojekcije", "%"+tipprojekcije+"%");
-		List<Repertoar9>result = query.getResultList();
-		em.close();
-		return result;
-	}
+	
 	public List<Repertoar9> getRepertoare(){
     	EntityManager em = JPAUtils.getEntityManager();
     	TypedQuery<Repertoar9> q = em.createQuery("select r FROM Repertoar9 r",Repertoar9.class);

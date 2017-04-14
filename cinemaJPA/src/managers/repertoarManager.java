@@ -103,6 +103,14 @@ public class repertoarManager {
     	em.close();
     	return rez;
     }
+    public List<Repertoar9> brojSlobodnihMesta(int mesto){
+		EntityManager em = JPAUtils.getEntityManager();
+    	TypedQuery<Repertoar9> q = em.createQuery("select r from Repertoar9 r where mesta > :mesto",Repertoar9.class);
+    	q.setParameter("mesto",mesto);
+    	List<Repertoar9> rez =q.getResultList();
+    	em.close();
+    	return rez;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	/*	repertoarManager rma = new repertoarManager();

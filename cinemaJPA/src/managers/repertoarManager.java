@@ -40,6 +40,14 @@ public class repertoarManager {
 			return null;
 		}
 	}
+	public List<Repertoar9> pretragaZanraFilma(String zanr){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Repertoar9>query = em.createQuery("SELECT r FROM Repertoar9 r join r.film9 f WHERE f.zanr like :zanr", Repertoar9.class);
+		query.setParameter("zanr", zanr);
+		List<Repertoar9>result = query.getResultList();
+		em.close();
+		return result;
+	}
 	
 	public List<Repertoar9> pretragaTip(String tipprojekcije){
 		EntityManager em = JPAUtils.getEntityManager();

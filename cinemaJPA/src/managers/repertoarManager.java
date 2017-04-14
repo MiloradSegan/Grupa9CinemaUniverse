@@ -40,6 +40,17 @@ public class repertoarManager {
 			return null;
 		}
 	}
+	public List<Repertoar9> pretragaDatuma(Date datumOd, Date datumDo){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Repertoar9>q = em.createQuery("select r from Repertoar9 r where r.datumpro between :datumOd and :datumDo", Repertoar9.class);
+		q.setParameter("datumOd", datumOd);
+		q.setParameter("datumDo",datumDo);
+		List<Repertoar9>result = q.getResultList();
+		em.close();
+		return result;
+	}
+
+
 	public static List<Repertoar9> pretragaTip(String tipprojekcije){
 		EntityManager em = JPAUtils.getEntityManager();
 		TypedQuery<Repertoar9>query = em.createQuery("select f from Repertoar9 f where f.tipprojekcije like :tipprojekcije", Repertoar9.class);

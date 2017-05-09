@@ -1,5 +1,6 @@
 package managers;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -29,6 +30,27 @@ public class korisnikManager {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	
+	public Komentar9 saveKomentar(Film9 film,Korisnik9 korisnik, String tekst,Date date) {
+		try {
+			EntityManager em = JPAUtils.getEntityManager();
+			em.getTransaction().begin();
+			Komentar9 kom = new Komentar9();
+			kom.setTekst(tekst);
+			kom.setDatum(date);
+			kom.setFilm9(film);
+			kom.setKorisnik9(korisnik);
+			em.persist(kom);
+			em.getTransaction().commit();
+			em.close();
+			return kom;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 	public List<Komentar9> getKomentare(int idfil){
 		EntityManager em = JPAUtils.getEntityManager();

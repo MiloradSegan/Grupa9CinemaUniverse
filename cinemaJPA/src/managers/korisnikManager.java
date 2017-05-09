@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import model.Film9;
+import model.Komentar9;
 import model.Korisnik9;
 
 public class korisnikManager {
@@ -28,6 +29,15 @@ public class korisnikManager {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	public List<Komentar9> getKomentare(int idfil){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Komentar9> q = em.createQuery("SELECT k FROM Komentar9 k where k.film9.idfil like :idfil",Komentar9.class);
+		q.setParameter("idfil", idfil);
+		List<Komentar9>result = q.getResultList();
+		em.close();
+		return result;
+	
 	}
 	public Korisnik9  korisnikUser(String usernamekor){
 		EntityManager em = JPAUtils.getEntityManager();

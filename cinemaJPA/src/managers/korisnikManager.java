@@ -1,11 +1,13 @@
 package managers;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import model.Film9;
+import model.Komentar9;
 import model.Korisnik9;
 
 public class korisnikManager {
@@ -24,6 +26,25 @@ public class korisnikManager {
 			em.getTransaction().commit();
 			em.close();
 			return k;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public Komentar9 saveKomentar(Film9 film,Korisnik9 korisnik, String tekst,Date date) {
+		try {
+			EntityManager em = JPAUtils.getEntityManager();
+			em.getTransaction().begin();
+			Komentar9 kom = new Komentar9();
+			kom.setTekst(tekst);
+			kom.setDatum(date);
+			kom.setFilm9(film);
+			kom.setKorisnik9(korisnik);
+			em.persist(kom);
+			em.getTransaction().commit();
+			em.close();
+			return kom;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

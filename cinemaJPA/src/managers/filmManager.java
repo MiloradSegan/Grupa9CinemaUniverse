@@ -29,6 +29,22 @@ public class filmManager {
 			return null;
 		}
 	}
+	public List<String> getNaziveFilmova(){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<String> query =(TypedQuery<String>) em.createQuery("select f.naziv from Film9 f");
+		List<String> rez = query.getResultList();
+		em.close();
+		return rez;
+		
+	}
+	public Film9  findNaziv(String naziv){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Film9>query = em.createQuery("select f from Film9 f where f.naziv like :naziv", Film9.class);
+		query.setParameter("naziv", "%"+naziv+"%");
+		Film9 result = query.getSingleResult();
+		em.close();
+		return result;
+	}
 	public static List<Film9>  pretragaNaziv(String naziv){
 		EntityManager em = JPAUtils.getEntityManager();
 		TypedQuery<Film9>query = em.createQuery("select f from Film9 f where f.naziv like :naziv", Film9.class);

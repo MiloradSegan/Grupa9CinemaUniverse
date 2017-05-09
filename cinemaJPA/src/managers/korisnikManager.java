@@ -29,7 +29,14 @@ public class korisnikManager {
 			return null;
 		}
 	}
-	
+	public Korisnik9  korisnikUser(String usernamekor){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Korisnik9>query = em.createQuery("select k from Korisnik9 k where k.usernamekor like :usernamekor", Korisnik9.class);
+		query.setParameter("usernamekor", "%"+usernamekor+"%");
+		Korisnik9 result = query.getSingleResult();
+		em.close();
+		return result;
+	}
 	public List<String> getUserNames(){
 		EntityManager em = JPAUtils.getEntityManager();
 		TypedQuery<String> query = (TypedQuery<String>) em.createQuery("select k.usernamekor from Korisnik9 k");

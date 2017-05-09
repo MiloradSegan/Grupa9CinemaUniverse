@@ -52,6 +52,15 @@ public class korisnikManager {
 		}
 		
 	}
+	public Korisnik9  logIn(String usernamekor,String passwordkor){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Korisnik9>query = em.createQuery("select k from Korisnik9 k where k.usernamekor like :usernamekor and k.passwordkor like :passwordkor", Korisnik9.class);
+		query.setParameter("usernamekor", usernamekor);
+		query.setParameter("passwordkor", passwordkor);
+		Korisnik9 result = query.getSingleResult();
+		em.close();
+		return result;
+	}
 	public List<Komentar9> getKomentare(int idfil){
 		EntityManager em = JPAUtils.getEntityManager();
 		TypedQuery<Komentar9> q = em.createQuery("SELECT k FROM Komentar9 k where k.film9.idfil like :idfil",Komentar9.class);

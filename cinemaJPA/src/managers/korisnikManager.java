@@ -9,6 +9,8 @@ import javax.persistence.TypedQuery;
 import model.Film9;
 import model.Komentar9;
 import model.Korisnik9;
+import model.Repertoar9;
+import model.Rezervacija9;
 
 public class korisnikManager {
 	
@@ -60,6 +62,23 @@ public class korisnikManager {
 		Korisnik9 result = query.getSingleResult();
 		em.close();
 		return result;
+	}
+	public Rezervacija9 saveRezervaciju(Integer brMesta, Korisnik9 korisnik, Repertoar9 repertoar) {
+		try {
+			EntityManager em = JPAUtils.getEntityManager();
+			em.getTransaction().begin();
+			Rezervacija9 rez = new Rezervacija9();
+			rez.setMestarez(brMesta);
+			rez.setKorisnik9(korisnik);
+			rez.setRepertoar9(repertoar);
+			em.persist(rez);
+			em.getTransaction().commit();
+			em.close();
+			return rez;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	public List<Komentar9> getKomentare(int idfil){
 		EntityManager em = JPAUtils.getEntityManager();

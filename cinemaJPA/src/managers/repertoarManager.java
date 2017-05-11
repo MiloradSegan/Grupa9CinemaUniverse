@@ -40,6 +40,15 @@ public class repertoarManager {
 			return null;
 		}
 	}
+	public Repertoar9 getRepForId(int idrep){
+		EntityManager em = JPAUtils.getEntityManager();
+		TypedQuery<Repertoar9> query =  em.createQuery("select r from Repertoar9 r where r.idrep like :idrep",Repertoar9.class);
+		query.setParameter("idrep", idrep);
+		Repertoar9 rez = query.getSingleResult();
+		em.close();
+		return rez;
+		
+	}
 	public List<Repertoar9> pretragaDatuma(Date datumOd, Date datumDo){
 		EntityManager em = JPAUtils.getEntityManager();
 		TypedQuery<Repertoar9>q = em.createQuery("select r from Repertoar9 r where r.datumpro between :datumOd and :datumDo", Repertoar9.class);
@@ -130,6 +139,14 @@ public class repertoarManager {
     	List<Repertoar9> rez =q.getResultList();
     	em.close();
     	return rez;
+	}
+    public void update1(int idrep, int brmesta){
+		EntityManager em = JPAUtils.getEntityManager();
+	     Repertoar9 r = em.find(Repertoar9.class, idrep);
+	 
+	    em.getTransaction().begin();
+	    r.setMesta(brmesta);
+	    em.getTransaction().commit();
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

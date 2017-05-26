@@ -8,30 +8,47 @@
 <title>Insert title here</title>
 </head>
 <body BACKGROUND="bg2.jpg"/>
+<style>
+table {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+}
+
+td {
+    float: center;
+}
+
+td a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+td a:hover:not(.active) {
+    background-color: #CCCCCC;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+</style>
 <body>
-		<a href="prikazSale.jsp">
-	   <input type="button" value="Pretraga po sali">
-	    </a>
-	    <a href="brMesta.jsp">
-	   <input type="button" value="Pretraga po slobodnim mestimai">
-	    </a>
-	    <a href="pretragaPoDatumu.jsp">
-	   <input type="button" value="Pretraga po datumu">
-	    </a>
-	    <a href="pretragaTip.jsp">
-	   <input type="button" value="Pretraga po tipu">
-	    </a>
-	    <a href="pretraga.jsp">
-	   <input type="button" value="Pretraga po nazivu">
-	    </a>
-	    <a href="prikazVremena.jsp">
-	   <input type="button" value="Pretraga po vremenu">
-	    </a>
-	    <a href="prikazZanra.jsp">
-	   <input type="button" value="Pretraga po zanru">
-	    </a>
-	     <a href="prodajaKarte.jsp">
-	   <input type="button" value="Prodaja karte">
-	    </a>
-</body>
+<table>
+  <tr><td><a class="active">Korisnik panel</a></td></tr>
+  <tr><td><a href="prikazSale.jsp">Pretraga po sali</a></td></tr>
+  <tr><td><a href=brMesta.jsp">Pretraga po mestima</a></td></tr>
+  <tr><td><a href="pretragaPoDatumu.jsp">Pretraga po datumu</a></td></tr>
+  <tr><td><a href="pretragaTip.jsp">Pretraga po tipu</a></td></tr>
+  <tr><td><a href="pretraga.jsp">Pretraga po nazivu</a></td></tr>
+  <tr><td><a href="prikazVremena.jsp">Pretraga po vremenu</a></td></tr>
+  <tr><td><a href="prikazZanra.jsp">Pretraga po zanru</a></td></tr>
+  <tr><td><a href="prodajaKarte.jsp">Prodaja karte</a></td></tr>  
+  <tr><td><a href="<c:url value="/logOutServlet"></c:url>">Log out</a></td></tr>
+   
+</table>
 </html>

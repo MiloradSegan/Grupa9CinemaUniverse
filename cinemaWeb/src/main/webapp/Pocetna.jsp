@@ -43,10 +43,10 @@ li a:hover:not(.active) {
   <li><a href="logIn.jsp">LogIn</a></li>
   <li><a href="registracijaKorisnika.jsp">Registracija</a></li>
   <li><a href="<c:url value="/prikazRepertoaraGost"></c:url>">Guest login</a></li>
+  
 </ul>
+<center><h1><font size="6" color="green">Cinema universe</font></h1></center>
 </body>
 
-<body>
-	<font size="5" color="white">OVDE TREBA REPERTOAR NAJGLEDANIJI</font>
-</body>
+
 </html>

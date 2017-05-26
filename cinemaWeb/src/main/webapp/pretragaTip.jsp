@@ -8,12 +8,21 @@
 <title>Pretraga Naziv</title>
 </head>
 <style>
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #CC0000;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: blink;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: ;
 }
 
 li {
@@ -29,7 +38,7 @@ li a {
 }
 
 li a:hover:not(.active) {
-    background-color: #111;
+    background-color: #CCCCCC;
 }
 
 .active {
@@ -38,18 +47,24 @@ li a:hover:not(.active) {
 </style>
 <body>
 <ul>
-  <li><a href="Pocetna.jsp">Pocetna</a></li>
-  <li><a class="active" href="#pretraga">Pretraga</a></li>
-  <li><a href="prikaziRepertoara.jsp">Rezervacija</a></li>
-  
+  <li><a href="radnikPanel.jsp">Korisnik pocetna</a></li>
+  <li><a href="prikazSale.jsp">Pretraga po sali</a></li>
+  <li><a href="brMesta.jsp">Pretraga po mestima</a></li>
+  <li><a href="pretragaPoDatumu.jsp">Pretraga po datumu</a></li>
+  <li><a class="active" href="pretragaTip.jsp">Pretraga po tipu</a></li>
+  <li><a href="pretraga.jsp">Pretraga po nazivu</a></li>
+  <li><a href="prikazVremena.jsp">Pretraga po vremenu</a></li>
+  <li><a href="prikazZanra.jsp">Pretraga po zanru</a></li>
+  <li><a href="prodajaKarte.jsp">Prodaja karte</a></li>
+   
 </ul>
 </body>
 <body BACKGROUND="bg2.jpg"></body>
 <body>
 	<form method="get" action="/cinemaWeb/pretragaTipS">
-	<th><p><font size="5" color="white">Pretraga repertoara po tipu: </font></p></th> <input type="text" name="tip">
-	<input type="submit" value="pretrazi"> 	
+	<font size="5" color="white">Pretraga repertoara po tipu: </font> <input type="text" name="tip">	<input type="submit" value="pretrazi"> 	
 	<center><table border="5" cellpadding="5">
+	<caption><font size="5" color="white">Pretrega filma po tipu: </font><caption>
 	 <thead>
 	  <td><font size="5" color="white"> Film</font> </td> 
 	  <td><font size="5" color="white"> Dan</font> </td> 
